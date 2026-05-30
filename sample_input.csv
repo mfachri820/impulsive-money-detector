@@ -1,0 +1,4 @@
+amount,amount_log,amount_z,amount_score,impulsive_score,hour,day_of_week,driver_count,category,metode_pembayaran,source,time_segment,category_type,is_hedonic_category,is_night,is_weekend,signal_band
+1830,7.51,-0.71,0.38,49.0,0,3,1,Transportasi,Cash,daily_household,late_night,neutral,0,1,watch
+64050,11.07,1.98,0.83,82.4,0,5,2,Makanan,Cash,daily_household,late_night,neutral,0,1,high
+9150,9.12,-0.39,0.43,58.0,0,6,2,Kesehatan,Cash,daily_household,late_night,neutral,0,1,watch

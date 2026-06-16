@@ -3,7 +3,7 @@ import argparse
 import pandas as pd
 from joblib import load
 
-MODEL_PATH = Path(__file__).resolve().parent / 'model' / 'fingo_label_classifier.joblib'
+MODEL_PATH = Path(__file__).resolve().parent.parent / 'AI-Fingo' / 'model' / 'fingo_label_classifier.joblib'
 
 FEATURES = [
     'amount',

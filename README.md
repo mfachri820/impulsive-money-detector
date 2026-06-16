@@ -1,12 +1,33 @@
-# AI-fingo
+# AI-Fingo
 
-This folder contains the machine learning pipeline for predicting transaction alert labels based on `fingo_impulse_signal` and related features.
+This project contains a machine learning pipeline for predicting transaction alert labels based on `fingo_impulse_signal` and related features.
 
-## Files
+## Directory Structure
 
-- `train_model.py` - trains a multiclass classifier to predict `label` as `AMAN`, `PERTIMBANGAN`, or `IMPULSIF`.
-- `predict.py` - loads the trained model and predicts labels for new transaction data.
-- `requirements.txt` - Python packages required to run the pipeline.
+```
+AI-Fingo/
+├── app.py                  # Gradio app for local inference
+├── requirements.txt        # Python dependencies
+├── README.md               # This file
+├── src/                    # ML pipeline scripts
+│   ├── train_model.py      # Trains the multiclass classifier
+│   ├── predict.py          # Loads model and predicts labels for new data
+│   ├── check_duplicates.py # Data quality / duplicate checks
+│   ├── compare_impulsive_score.py  # Model comparison with/without impulsive_score
+│   ├── time_based_evaluation.py    # Time-based holdout & rolling CV evaluation
+│   └── test_api.py         # API test for HuggingFace Space deployment
+├── data/                   # Sample data
+│   └── sample_input.csv
+├── docs/                   # Documentation
+│   ├── BACKEND.md          # Backend integration guide
+│   └── Document.MD         # Project documentation
+└── AI-Fingo/               # HuggingFace Space deployment (self-contained)
+    ├── app.py
+    ├── requirements.txt
+    ├── README.md           # HF Space config
+    └── model/
+        └── fingo_label_classifier.joblib
+```
 
 ## Usage
 
@@ -19,35 +40,31 @@ This folder contains the machine learning pipeline for predicting transaction al
 
 2. Train the model:
    ```bash
-   python train_model.py
+   python src/train_model.py
    ```
 
 3. Make predictions on new rows:
    ```bash
-   python predict.py --input sample_input.csv
+   python src/predict.py --input data/sample_input.csv
    ```
 
 4. Compare the effect of `impulsive_score` on model quality:
    ```bash
-   python compare_impulsive_score.py
+   python src/compare_impulsive_score.py
    ```
 
 5. Run a time-based holdout and rolling CV evaluation on unseen periods:
    ```bash
-   python time_based_evaluation.py
+   python src/time_based_evaluation.py
    ```
-   This script evaluates both:
-   - time-based holdout on the latest period
-   - rolling time-series CV across consecutive windows
-   - models with and without score-derived features
 
-7. Use the Gradio app for cloud-style deployment or local inference:
+6. Use the Gradio app for cloud-style deployment or local inference:
    ```bash
    python app.py
    ```
 
-The training script reads the labeled dataset from the repository data folder:
-`../impulsive-detector-main/impulsive-detector-main/data/03_final_data/04_Merged_labeled_transaction.csv`.
+The training script reads the labeled dataset from:
+`../impulsive-detector-main/impulsive-detector-main/data/03_final_data/04_Merged_labeled_transaction.csv`
 
 ## Deploying to Hugging Face
 

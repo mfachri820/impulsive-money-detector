@@ -8,9 +8,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report, confusion_matrix
 from joblib import dump
 
-ROOT = Path(__file__).resolve().parent.parent
-DATA_PATH = ROOT / 'impulsive-detector-main' / 'impulsive-detector-main' / 'data' / '03_final_data' / '04_Merged_labeled_transaction.csv'
-MODEL_DIR = Path(__file__).resolve().parent / 'model'
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_PATH = PROJECT_ROOT / 'impulsive-detector-main' / 'impulsive-detector-main' / 'data' / '03_final_data' / '04_Merged_labeled_transaction.csv'
+MODEL_DIR = PROJECT_ROOT / 'AI-Fingo' / 'model'
 MODEL_DIR.mkdir(parents=True, exist_ok=True)
 MODEL_PATH = MODEL_DIR / 'fingo_label_classifier.joblib'
 

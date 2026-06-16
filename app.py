@@ -2,7 +2,7 @@ from pathlib import Path
 from joblib import load
 import pandas as pd
 
-MODEL_PATH = Path(__file__).resolve().parent / 'model' / 'fingo_label_classifier.joblib'
+MODEL_PATH = Path(__file__).resolve().parent / 'AI-Fingo' / 'model' / 'fingo_label_classifier.joblib'
 
 FEATURES = [
     'amount',
